@@ -45,3 +45,14 @@ week7_tbl %>%
     labs(x="Gender", y ="Time Elapsed (mins)")) %>%
   ggsave("../figs/fig4.png",., width = 7, height = 4, unit = "in")
 # showswarning for difftime object, defaulting to continuous recheck this later
+
+(ggplot(week7_tbl, aes(x=q5, y=q7, color = condition)) +
+    geom_jitter(width = 0.1) +
+    geom_smooth(method = "lm", se = F) +
+    labs(x="Score on Q5",y="Score on Q7") +
+    scale_color_discrete("Experimental Condition") +
+    theme(
+      legend.position = "bottom",
+      legend.background = element_rect("#DFDFDF"))) %>%
+  ggsave("../figs/fig5.png",., width = 7, height = 4, unit = "in")
+#come back and see if I should change the width/height to match a certain ratio and make sure all the line numbers are correct
