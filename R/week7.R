@@ -38,3 +38,10 @@ week7_tbl %>%
     facet_grid(. ~ gender)+
     labs(x="Score on Q1",y="Score on Q2")) %>%
   ggsave("../figs/fig3.png",., width = 7, height = 4, units = "in")
+
+
+(ggplot(week7_tbl, aes(x=gender, y=timeSpent)) +
+    geom_boxplot() +
+    labs(x="Gender", y ="Time Elapsed (mins)")) %>%
+  ggsave("../figs/fig4.png",., width = 7, height = 4, unit = "in")
+# showswarning for difftime object, defaulting to continuous recheck this later
