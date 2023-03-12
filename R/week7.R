@@ -32,3 +32,9 @@ week7_tbl %>%
     geom_jitter() +
     labs(color = "Participant Gender")) %>%
   ggsave("../figs/fig2.png",., width = 9, height = 4, units = "in")
+
+(ggplot(week7_tbl, aes(x=q1, y=q2))+
+    geom_jitter()+
+    facet_grid(. ~ gender)+
+    labs(x="Score on Q1",y="Score on Q2")) %>%
+  ggsave("../figs/fig3.png",., width = 7, height = 4, units = "in")
