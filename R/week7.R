@@ -19,9 +19,9 @@ week7_tbl <- read.csv("../data/week3.csv",  header = TRUE) %>%
 
 
 # Visualization
-week7_tbl %>% 
-  select(starts_with("q")) %>% 
-  ggpairs()
+ggpairs(week7_tbl[,5:13]) %>%
+  ggsave("../figs/fig0.png",.)
+  
 (ggplot(week7_tbl, aes(x=timeStart, y=q1)) +
     geom_point() +
     scale_x_datetime("Date of Experiment")+
@@ -42,9 +42,9 @@ week7_tbl %>%
 
 (ggplot(week7_tbl, aes(x=gender, y=timeSpent)) +
     geom_boxplot() +
-    labs(x="Gender", y ="Time Elapsed (mins)")) %>%
+    scale_x_discrete("Gender")+
+    scale_y_continuous("Time Elapsed (mins)")) %>%
   ggsave("../figs/fig4.png",., width = 7, height = 4, unit = "in")
-# showswarning for difftime object, defaulting to continuous recheck this later
 
 (ggplot(week7_tbl, aes(x=q5, y=q7, color = condition)) +
     geom_jitter(width = 0.1) +
@@ -55,4 +55,3 @@ week7_tbl %>%
       legend.position = "bottom",
       legend.background = element_rect("#DFDFDF"))) %>%
   ggsave("../figs/fig5.png",., width = 7, height = 4, unit = "in")
-#come back and see if I should change the width/height to match a certain ratio and make sure all the line numbers are correct
